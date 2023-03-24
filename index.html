@@ -8,7 +8,7 @@
   <title>App calculatrice</title>
 </head>
 <body>
-  <div class="app app--theme3">
+  <div class="app" data-theme="1">
 
     <header>
       <h1>calc</h1>
@@ -20,15 +20,20 @@
             <span>2</span>
             <span>3</span>
           </div>
-          <div class="toggle__bar">
+          <div class="toggle_container">
             <div class="toggle__dot"></div>
+            <div class="toggle__bar">
+              <div class="toggle__choice space__choice--1"></div>
+              <div class="toggle__choice space__choice--2"></div>
+              <div class="toggle__choice space__choice--3"></div>  
+            </div>  
           </div>
         </div>
       </div>
     </header>
 
     <div class="screen">
-      <p class="screen__result">1250,120</p>
+      <p class="screen__result"></p>
     </div>
 
     <div class="keypad">
@@ -57,7 +62,7 @@
     </div>
   
   </div>
-
+  <script src="app.js"></script>
 
   
 </body>
