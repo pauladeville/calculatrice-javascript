@@ -80,7 +80,7 @@ $theme3: (
   }
   .keypad {
     background-color: map-get($theme1, toggle-keypad-background);
-    &__number {
+    &__number, &__operator {
       @include shadow(map-get($theme1, key-shadow));
       background-color: map-get($theme1, key-background);
       color: map-get($theme1, text-blue);
@@ -122,7 +122,7 @@ $theme3: (
   }
   .keypad {
     background-color: map-get($theme2, toggle-keypad-background);
-    &__number {
+    &__number, &__operator {
       @include shadow(map-get($theme2, key-shadow));
       background-color: map-get($theme2, key-background);
       color: map-get($theme2, text-blue);
@@ -161,7 +161,7 @@ $theme3: (
   }
   .keypad {
     background-color: map-get($theme3, toggle-keypad-background);
-    &__number {
+    &__number, &__operator {
       @include shadow(map-get($theme3, key-shadow));
       background-color: map-get($theme3, key-background);
       color: map-get($theme3, text-yellow);
@@ -230,9 +230,6 @@ header {
   }
 }
 .toggle {
-  &__container{
-    position: relative;
-  }
   &__bar{
     display: flex;
     justify-content: space-evenly;
@@ -241,6 +238,7 @@ header {
   &__choice {
     flex: calc(100%/3);
     height: 26px;
+    cursor: pointer;
     &:first-child{
       border-top-left-radius: 500px;
       border-bottom-left-radius: 500px;
@@ -262,9 +260,11 @@ header {
   &__numbers {
     display: flex;
     justify-content: space-between;
-    > span {
+    margin-bottom: -10px;
+    cursor: pointer;
+    > div {
       font-size: 12px;
-      padding: 10px;
+      padding: 0 10px;
     }
   }
 }
@@ -314,11 +314,11 @@ header {
 //CREDITS
 .credit {
   margin: 50px;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   line-height: 1.2em;
   a {
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
   }
 }

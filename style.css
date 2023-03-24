@@ -40,7 +40,7 @@
 .app[data-theme="1"] .keypad {
   background-color: hsl(223deg, 31%, 20%);
 }
-.app[data-theme="1"] .keypad__number {
+.app[data-theme="1"] .keypad__number, .app[data-theme="1"] .keypad__operator {
   box-shadow: 0 4px hsl(28deg, 16%, 65%);
   background-color: hsl(30deg, 25%, 89%);
   color: hsl(221deg, 14%, 31%);
@@ -80,7 +80,7 @@
 .app[data-theme="2"] .keypad {
   background-color: hsl(0deg, 5%, 81%);
 }
-.app[data-theme="2"] .keypad__number {
+.app[data-theme="2"] .keypad__number, .app[data-theme="2"] .keypad__operator {
   box-shadow: 0 4px hsl(35deg, 11%, 61%);
   background-color: hsl(45deg, 7%, 89%);
   color: hsl(60deg, 10%, 19%);
@@ -117,7 +117,7 @@
 .app[data-theme="3"] .keypad {
   background-color: hsl(268deg, 71%, 12%);
 }
-.app[data-theme="3"] .keypad__number {
+.app[data-theme="3"] .keypad__number, .app[data-theme="3"] .keypad__operator {
   box-shadow: 0 4px hsl(290deg, 70%, 36%);
   background-color: hsl(268deg, 47%, 21%);
   color: hsl(52deg, 100%, 62%);
@@ -150,9 +150,6 @@ header {
   margin: 0 20px 5px 0;
 }
 
-.toggle__container {
-  position: relative;
-}
 .toggle__bar {
   display: flex;
   justify-content: space-evenly;
@@ -161,6 +158,7 @@ header {
 .toggle__choice {
   flex: 33.3333333333%;
   height: 26px;
+  cursor: pointer;
 }
 .toggle__choice:first-child {
   border-top-left-radius: 500px;
@@ -186,10 +184,12 @@ header {
 .toggle__numbers {
   display: flex;
   justify-content: space-between;
+  margin-bottom: -10px;
+  cursor: pointer;
 }
-.toggle__numbers > span {
+.toggle__numbers > div {
   font-size: 12px;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .screen {
@@ -241,12 +241,12 @@ header {
 
 .credit {
   margin: 50px;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   line-height: 1.2em;
 }
 .credit a {
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
 }
 
