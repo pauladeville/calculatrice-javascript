@@ -3,24 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="icon" type="image/png" href="./images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <title>App calculatrice</title>
 </head>
 <body>
+  <div class="app app--theme3">
+
+    <header>
+      <h1>calc</h1>
+      <div class="theme__container">
+        <p class="theme__title">theme</p>
+        <div class="theme__toggle">
+          <div class="toggle__numbers">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+          </div>
+          <div class="toggle__bar">
+            <div class="toggle__dot"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="screen">
+      <p class="screen__result">1250,120</p>
+    </div>
+
+    <div class="keypad">
+      <div class="keypad__number">7</div>
+      <div class="keypad__number">8</div>
+      <div class="keypad__number">9</div>
+      <div class="keypad__option" id="delete">del</div>
+      <div class="keypad__number">4</div>
+      <div class="keypad__number">5</div>
+      <div class="keypad__number">6</div>
+      <div class="keypad__number" id="addition">+</div>
+      <div class="keypad__number">1</div>
+      <div class="keypad__number">2</div>
+      <div class="keypad__number">3</div>
+      <div class="keypad__number" id="soustraction">-</div>
+      <div class="keypad__number" id="decimal">.</div>
+      <div class="keypad__number">0</div>
+      <div class="keypad__number" id="division">/</div>
+      <div class="keypad__number" id="multiplication">x</div>
+      <div class="keypad__option" id="reset">reset</div>
+      <div class="keypad__equal" id="equal">=</div>
+    </div>
+
+    <div class="credit">
+      Design by Frontend Mentor<br>Coded by <a href="https://paulinedesmarets.fr/">Pauline Desmarets</a><br>Sass / Vanilla JS
+    </div>
+  
+  </div>
 
 
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>

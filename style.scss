@@ -1,0 +1,293 @@
+//IMPORT
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+//COLORS
+$theme1: (
+  main-background: hsl(222, 26%, 31%),
+  toggle-keypad-background: hsl(223, 31%, 20%),
+  screen-background: hsl(224, 36%, 15%),
+  key-option-background: hsl(225, 21%, 49%),
+  key-option-shadow: hsl(224, 28%, 35%),
+  key-equal-background: hsl(6, 63%, 50%),
+  key-equal-shadow: hsl(6, 70%, 34%),
+  key-background: hsl(30, 25%, 89%),
+  key-shadow: hsl(28, 16%, 65%),
+  text-blue: hsl(221, 14%, 31%),
+  text-white: hsl(0, 0%, 100%),
+);
+$theme2: (
+  main-background: hsl(0, 0%, 90%),
+  toggle-keypad-background: hsl(0, 5%, 81%),
+  screen-background: hsl(0, 0%, 93%),
+  key-option-background: hsl(185, 42%, 37%),
+  key-option-shadow: hsl(185, 58%, 25%),
+  key-equal-background: hsl(25, 98%, 40%),
+  key-equal-shadow: hsl(25, 99%, 27%),
+  key-background: hsl(45, 7%, 89%),
+  key-shadow: hsl(35, 11%, 61%),
+  text-blue: hsl(60, 10%, 19%),
+  text-white: hsl(0, 0%, 100%),
+);
+$theme3: (
+  main-background: hsl(268, 75%, 9%),
+  toggle-keypad-background: hsl(268, 71%, 12%),
+  screen-background: hsl(268, 71%, 12%),
+  key-option-background: hsl(281, 89%, 26%),
+  key-option-shadow: hsl(285, 91%, 52%),
+  key-equal-background: hsl(176, 100%, 44%),
+  key-equal-shadow: hsl(177, 92%, 70%),
+  key-background: hsl(268, 47%, 21%),
+  key-shadow: hsl(290, 70%, 36%),
+  text-yellow: hsl(52, 100%, 62%),
+  text-black: hsl(198, 20%, 13%),
+  text-white: hsl(0, 0%, 100%),
+);
+
+//MIXINS THEMES
+@mixin shadow($color) {
+  box-shadow: 0 4px $color;
+}
+
+@mixin theme1 {
+  background-color: map-get($theme1, main-background);
+  header,
+  .screen,
+  .keypad__option,
+  .keypad__equal,
+  .credit {
+    color: map-get($theme1, text-white);
+  }
+  .credit a {
+    color: map-get($theme1, key-equal-background);
+  }
+  .toggle {
+    &__bar {
+      background-color: map-get($theme1, toggle-keypad-background);
+    }
+    &__dot {
+      background-color: map-get($theme1, key-equal-background);
+    }
+  }
+  .screen {
+    background-color: map-get($theme1, screen-background);
+  }
+  .keypad {
+    background-color: map-get($theme1, toggle-keypad-background);
+    &__number {
+      @include shadow(map-get($theme1, key-shadow));
+      background-color: map-get($theme1, key-background);
+      color: map-get($theme1, text-blue);
+    }
+    &__option {
+      @include shadow(map-get($theme1, key-option-shadow));
+      background-color: map-get($theme1, key-option-background);
+    }
+    &__equal {
+      @include shadow(map-get($theme1, key-equal-shadow));
+      background-color: map-get($theme1, key-equal-background);
+    }
+  }
+}
+@mixin theme2 {
+  background-color: map-get($theme2, main-background);
+  header,
+  .screen,
+  .credit {
+    color: map-get($theme2, text-blue);
+  }
+  .keypad__option,
+  .keypad__equal {
+    color: map-get($theme2, text-white);
+  }
+  .credit a {
+    color: map-get($theme2, key-equal-background);
+  }
+  .toggle {
+    &__bar {
+      background-color: map-get($theme2, toggle-keypad-background);
+    }
+    &__dot {
+      background-color: map-get($theme2, key-equal-background);
+    }
+  }
+  .screen {
+    background-color: map-get($theme2, screen-background);
+  }
+  .keypad {
+    background-color: map-get($theme2, toggle-keypad-background);
+    &__number {
+      @include shadow(map-get($theme2, key-shadow));
+      background-color: map-get($theme2, key-background);
+      color: map-get($theme2, text-blue);
+    }
+    &__option {
+      @include shadow(map-get($theme2, key-option-shadow));
+      background-color: map-get($theme2, key-option-background);
+    }
+    &__equal {
+      @include shadow(map-get($theme2, key-equal-shadow));
+      background-color: map-get($theme2, key-equal-background);
+    }
+  }
+}
+@mixin theme3 {
+  background-color: map-get($theme3, main-background);
+  header,
+  .screen,
+  .keypad__equal, .credit a{
+    color: map-get($theme3, text-yellow);
+
+  }
+  .credit {
+    color: map-get($theme3, text-white);
+  }
+  .toggle {
+    &__bar {
+      background-color: map-get($theme3, toggle-keypad-background);
+    }
+    &__dot {
+      background-color: map-get($theme3, key-equal-background);
+    }
+  }
+  .screen {
+    background-color: map-get($theme3, screen-background);
+  }
+  .keypad {
+    background-color: map-get($theme3, toggle-keypad-background);
+    &__number {
+      @include shadow(map-get($theme3, key-shadow));
+      background-color: map-get($theme3, key-background);
+      color: map-get($theme3, text-yellow);
+    }
+    &__option {
+      @include shadow(map-get($theme3, key-option-shadow));
+      background-color: map-get($theme3, key-option-background);
+      color: map-get($theme2, text-white);
+
+    }
+    &__equal {
+      @include shadow(map-get($theme3, key-equal-shadow));
+      background-color: map-get($theme3, key-equal-background);
+      color: map-get($theme2, text-blue);
+    }
+  }
+}
+
+//RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+  font-size: 32px;
+}
+$soft-radius: 7px;
+$marginY: 25px;
+
+//CONTAINER
+.app {
+  padding: 6%;
+  &--theme1 {
+    @include theme1;
+  }
+  &--theme2 {
+    @include theme2;
+  }
+  &--theme3 {
+    @include theme3;
+  }
+}
+
+//HEADER
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//TOGGLE
+.theme {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  &__title {
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 0 20px 5px 0;
+  }
+}
+.toggle {
+  &__bar {
+    height: 25px;
+    border-radius: 150px;
+    padding: 5px;
+  }
+  &__dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 150px;
+  }
+  &__numbers {
+    display: flex;
+    justify-content: space-between;
+    > span {
+      font-size: 12px;
+      padding: 8px;
+    }
+  }
+}
+
+//SCREEN
+.screen {
+  margin: $marginY 0;
+  padding: 20px;
+  border-radius: $soft-radius;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  &__result {
+    padding-top: 8px;
+    font-size: 40px;
+  }
+}
+
+//KEYPAD
+.keypad {
+  border-radius: $soft-radius;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 15px;
+  column-gap: 15px;
+  padding: $marginY;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $soft-radius;
+    padding: 20px 0 12px 0;
+  }
+}
+#reset {
+  grid-column: 1 / 3;
+}
+#equal {
+  grid-column: 3 / 5;
+}
+.keypad__option {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+//CREDITS
+.credit {
+  margin: 50px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.2em;
+  a {
+    font-size: 18px;
+    text-decoration: none;
+  }
+}
