@@ -22,57 +22,81 @@ for (let i = 0; i < choiceZones.length; i++) {
 //CALCULATOR
 let result = 0;
 let formula = "";
+let decimalPossible = true;
 let screen = document.querySelector(".screen__result");
 let keysNumber = document.querySelectorAll(".keypad__number");
 let keysOperator = document.querySelectorAll(".keypad__operator");
 
 function updateScreen() {
-  if (!isNaN(result) && result % 1 != 0) {
-    console.log(result);
-    console.log("decimal");
-    screen.textContent = result.toFixed(2);
-  } else {
-    screen.textContent = result;
-  }
+  screen.textContent = result;
+}
+function throwError() {
+  document.querySelector(".screen").classList.add("screen--error");
+  setTimeout(() => {
+    document.querySelector(".screen").classList.remove("screen--error");
+  }, 1000);
 }
 updateScreen();
 
 for (let key of keysNumber) {
   key.addEventListener("click", () => {
     if (result == "0") {
-      result = key.innerHTML;
-      formula = result;
+      if (key.innerHTML == ".") {
+        result = "0" + key.innerHTML;
+        formula += key.innerHTML;
+        decimalPossible = false;
+      } else {
+        result = key.innerHTML;
+        formula = result;
+      }
     } else {
-      result += key.innerHTML;
-      formula += key.innerHTML;
+      if (key.innerHTML == "." && decimalPossible) {
+        decimalPossible = false;
+        result += key.innerHTML;
+        formula += key.innerHTML;
+      } else if (key.innerHTML == "." && !decimalPossible) {
+        throwError();
+      } else {
+        result += key.innerHTML;
+        formula += key.innerHTML;
+      }
     }
     updateScreen();
-    console.log(formula);
   });
 }
 
 for (let key of keysOperator) {
   key.addEventListener("click", () => {
-    if (key.innerHTML == "x") {
-      formula = formula + "*";
-      console.log(formula);
-      result = "x";
-      updateScreen();
-      result = "";
+    if (screen.innerHTML == "0") {
+      throwError();
     } else {
-      formula = formula + key.innerHTML;
-      console.log(formula);
-      result = key.innerHTML;
-      updateScreen();
-      result = "";
+      if (key.innerHTML == "x") {
+        formula = formula + "*";
+        result = "x";
+        updateScreen();
+        result = "";
+        decimalPossible = true;
+      } else {
+        formula = formula + key.innerHTML;
+        result = key.innerHTML;
+        updateScreen();
+        result = "";
+        decimalPossible = true;
+      }
     }
   });
 }
 
 document.querySelector("#equal").addEventListener("click", () => {
   result = eval(formula);
-  updateScreen();
-  result = 0;
+  if (!isNaN(result) && result % 1 != 0) {
+    screen.textContent = result.toFixed(2);
+    result = 0;
+    decimalPossible = true;
+  } else {
+    updateScreen();
+    result = 0;
+  }
 });
 
 //DELETE AND RESET
@@ -80,7 +104,6 @@ document.querySelector("#reset").addEventListener("click", () => {
   result = 0;
   updateScreen();
   formula = "";
-  console.log(formula);
 });
 document.querySelector("#delete").addEventListener("click", () => {
   if (result.length > 1) {
@@ -91,5 +114,4 @@ document.querySelector("#delete").addEventListener("click", () => {
     formula = "";
   }
   updateScreen();
-  console.log(formula);
 });
