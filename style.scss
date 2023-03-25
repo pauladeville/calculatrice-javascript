@@ -22,6 +22,14 @@
     transform: translateX(5px);
   }
 }
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 //COLORS
 $theme1: (
@@ -305,6 +313,11 @@ header {
   &__result {
     padding-top: 8px;
     font-size: 40px;
+    opacity: 1;
+    transition: all 200 ease-in-out;
+    &--appearing {
+      opacity: 0;
+    }
   }
   &--error {
     animation: wiggle 0.3s;
@@ -327,6 +340,9 @@ header {
     padding: 20px 0 12px 0;
     @include key-hover;
   }
+}
+.clicked {
+  filter: brightness(150%);
 }
 #reset {
   grid-column: 1 / 3;
