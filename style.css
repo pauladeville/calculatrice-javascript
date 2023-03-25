@@ -41,7 +41,7 @@
   flex-direction: column;
   justify-content: center;
   transition: all 200ms ease-in-out;
-  padding: 0 5vw;
+  padding: 10vh 5vw;
 }
 .app[data-theme="1"] {
   background-color: hsl(222deg, 26%, 31%);
@@ -162,7 +162,13 @@
 }
 @media screen and (min-width: 900px) {
   .app {
-    padding: 30%;
+    height: auto;
+    padding: 10vh 30vw;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .app {
+    padding: 10vh 20vw;
   }
 }
 
@@ -259,6 +265,13 @@ header {
   column-gap: 15px;
   padding: 25px;
 }
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .keypad {
+    row-gap: 22px;
+    column-gap: 20px;
+    padding: 25px;
+  }
+}
 @media screen and (min-width: 900px) {
   .keypad {
     row-gap: 30px;
@@ -297,7 +310,7 @@ div[data-key=Enter] {
 }
 
 .credit {
-  margin: 50px;
+  margin-top: 25px;
   font-size: 16px;
   text-align: center;
   line-height: 1.2em;
@@ -305,6 +318,16 @@ div[data-key=Enter] {
 .credit a {
   font-size: 16px;
   text-decoration: none;
+}
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .credit {
+    margin-top: 30px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .credit {
+    margin-top: 30px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -165,6 +165,7 @@ function keyboardAnimation(key) {
   }, 150);
 }
 document.addEventListener("keydown", (e) => {
+  e.preventDefault();
   switch (e.key) {
     case "1":
     case "2":
